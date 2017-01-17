@@ -90,11 +90,11 @@
 #
 #   require 'optparse'
 #
-#   Options = Struct.new(:name)
+#   Options = Struct.new(:name)  建立结构内部字段
 #
 #   class Parser
 #     def self.parse(options)
-#       args = Options.new("world")
+#       args = Options.new("world") 用上面的结构创建一个结构并赋name字段的值
 #
 #       opt_parser = OptionParser.new do |opts|
 #         opts.banner = "Usage: example.rb [options]"
@@ -931,7 +931,7 @@ class OptionParser
   DefaultList.short['-'] = Switch::NoArgument.new {}
   DefaultList.long[''] = Switch::NoArgument.new {throw :terminate}
 
-
+#生成该命令 " typeset -A opt_args\n" + "local context state line\n" + "_arguments -s -S \\\n"
   COMPSYS_HEADER = <<'XXX'      # :nodoc:
 
 typeset -A opt_args
